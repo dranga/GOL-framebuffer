@@ -1,3 +1,6 @@
+# test programs
+test_programs/
+bin/
 # Object files
 *.o
 *.ko
