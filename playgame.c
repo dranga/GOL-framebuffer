@@ -17,6 +17,8 @@
 int main()
 {
 	int fbfd = 0;
+    int gridsize = 32;
+    int seedpop = 20;
 
 	FrameBuffer_t *frame;
 	frame = malloc(sizeof(FrameBuffer_t));
@@ -57,8 +59,8 @@ int main()
 
     
     FrameBufferOpen(frame, fbfd);
-    newGrid(grid, frame, 20, 20);
-    newGame(game, grid, 10);
+    newGrid(grid, frame, gridsize, gridsize);
+    newGame(game, grid, seedpop);
 
     runGame(game);
     
