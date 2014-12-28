@@ -42,7 +42,7 @@ void newGame(Game_t *game, Grid_t *grid, int fillPercentSeed) {
 	*/
 }
 
-void runGame(Game_t *game){
+void runGame(Game_t *game, int *running){
 	int stillLife;
 	char *nextCycle = (char *) malloc(game->cycleSize * sizeof(char));
 	fillCycleZeros(nextCycle, game->cycleSize);
@@ -94,7 +94,7 @@ void runGame(Game_t *game){
 		drawCycle(game);
 
 		sleep(game->cycleTime);
-	}while(stillLifeOscilation > 0);
+	}while(stillLifeOscilation > 0 && *running == 1);
 	free(nextCycle);
 }
 

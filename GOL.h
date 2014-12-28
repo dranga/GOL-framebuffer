@@ -18,7 +18,7 @@ typedef struct game {
 
 void newGame(Game_t *game, Grid_t *grid, int fillPercentSeed);
 
-void runGame(Game_t *game);
+void runGame(Game_t *game, int *running);
 
 void drawCycle(Game_t *game);
 

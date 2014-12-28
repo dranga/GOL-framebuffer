@@ -39,7 +39,3 @@ Similarly, the number of still-life/oscilatory generations to display before qui
 4 demos are available, showing some initial starting points and progress using the framebuffer and grid modules. Compiling these can be done through make
 
 Dummygrid.c is used to debug the game, printing the grid as characters in the terminal instead of to framebuffer, just replace grid.c and .h by dummygrid.c and .h .
-
-### Future Features
-* signal handling
-* grid symbol (borders, rounder, ...)

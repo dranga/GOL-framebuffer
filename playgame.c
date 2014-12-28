@@ -9,16 +9,24 @@
 #include <termios.h>
 #include <fcntl.h>
 #include <time.h> 
+#include <signal.h>
 
 #include "framebuffer.h"
 #include "grid.h"
 #include "GOL.h"
 
+
+int running = 1;
+void intHandler(int sig);
+
 int main()
 {
 	int fbfd = 0;
+
     int gridsize = 32;
     int seedpop = 20;
+
+    signal(SIGINT, intHandler);
 
 	FrameBuffer_t *frame;
 	frame = malloc(sizeof(FrameBuffer_t));
@@ -62,7 +70,7 @@ int main()
     newGrid(grid, frame, gridsize, gridsize);
     newGame(game, grid, seedpop);
 
-    runGame(game);
+    runGame(game, &running);
     
     //perform clean up and show cursor
     FrameBufferClose(frame);
@@ -80,4 +88,9 @@ int main()
 	//printf("DONE\n");
 
     return 0;
+}
+
+void intHandler(int sig) {
+    running = 0;
+    //exit(0);
 }

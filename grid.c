@@ -15,9 +15,10 @@ void GridPaintCell(Grid_t *grid, int x,int y, int red, int blue, int green, int 
 
 	int xMax = (x + 1) * grid->XPixelPerDiv;
 	int yMax = (y + 1) * grid->YPixelPerDiv;
+	int border = 2;
 	int frameX, frameY;
-	for(frameX = x * grid->XPixelPerDiv; frameX < xMax; frameX++) {
-		for(frameY = y * grid->YPixelPerDiv; frameY < yMax; frameY++) {
+	for(frameX = x * grid->XPixelPerDiv + border; frameX < xMax - border; frameX++) {
+		for(frameY = y * grid->YPixelPerDiv + border; frameY < yMax - border; frameY++) {
 			FrameBufferWritePixel(grid->frame, frameX, frameY, red, blue, green, transparency);
 		}
 	}
